@@ -51,16 +51,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-Rx-PlR">
+                                <rect key="frame" x="140" y="318" width="95" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="4aa-CD-3Ml"/>
+                                    <constraint firstAttribute="height" constant="30" id="bYG-M8-Y1K"/>
+                                </constraints>
+                                <state key="normal" title="SelectText"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vSo-xV-gBW" secondAttribute="trailing" constant="67" id="3L4-G6-sma"/>
                             <constraint firstItem="vSo-xV-gBW" firstAttribute="top" secondItem="Om9-XL-i6k" secondAttribute="bottom" constant="30" id="6Bm-iB-sY7"/>
                             <constraint firstItem="Om9-XL-i6k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="7sJ-hV-oZp"/>
+                            <constraint firstItem="iAV-Rx-PlR" firstAttribute="top" secondItem="Rh6-9u-v67" secondAttribute="bottom" constant="43" id="A02-GN-RF8"/>
                             <constraint firstItem="Rh6-9u-v67" firstAttribute="top" secondItem="vSo-xV-gBW" secondAttribute="bottom" constant="33" id="G6x-iZ-qfb"/>
+                            <constraint firstAttribute="trailing" secondItem="iAV-Rx-PlR" secondAttribute="trailing" constant="140" id="PfJ-le-jzn"/>
                             <constraint firstAttribute="trailing" secondItem="Rh6-9u-v67" secondAttribute="trailing" constant="67" id="ULE-7z-Aes"/>
                             <constraint firstItem="Om9-XL-i6k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="WyA-Tq-xgN"/>
                             <constraint firstItem="vSo-xV-gBW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="68" id="Zjf-Z4-Ryd"/>
+                            <constraint firstItem="iAV-Rx-PlR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="140" id="ayd-Vy-74a"/>
                             <constraint firstAttribute="trailing" secondItem="Om9-XL-i6k" secondAttribute="trailing" constant="68" id="d7s-17-5IW"/>
                             <constraint firstItem="Rh6-9u-v67" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="68" id="em9-Dz-VKb"/>
                         </constraints>

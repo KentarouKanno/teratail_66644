@@ -9,14 +9,8 @@
 import Foundation
 import UIKit
 
-protocol PickerViewTextFieldDelegate: class {
-    func pushDoneButton(_ selectText: String)
-}
-
 
 class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    weak var pickerViewDelegate: PickerViewTextFieldDelegate?
     
     let pickerView = UIPickerView()
     let toolbarHeight: CGFloat = 44
