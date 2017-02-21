@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o0v-gX-IqL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PickerTextField-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="teratail_66644" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vSo-xV-gBW" customClass="PickerViewTextField" customModule="teratail_66644" customModuleProvider="target">
+                                <rect key="frame" x="68" y="182" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.83729192892726512" green="0.97365804653296406" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aTK-PG-YYb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-XL-i6k" customClass="PickerViewTextField" customModule="teratail_66644" customModuleProvider="target">
+                                <rect key="frame" x="67" y="122" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.96477622519999995" green="1" blue="0.67735371779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HiJ-pA-ihP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rh6-9u-v67" customClass="PickerViewTextField" customModule="teratail_66644" customModuleProvider="target">
+                                <rect key="frame" x="68" y="245" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.68421138943655024" green="1" blue="0.61647066011777352" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jYQ-Vg-KYE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vSo-xV-gBW" secondAttribute="trailing" constant="67" id="3L4-G6-sma"/>
+                            <constraint firstItem="vSo-xV-gBW" firstAttribute="top" secondItem="Om9-XL-i6k" secondAttribute="bottom" constant="30" id="6Bm-iB-sY7"/>
+                            <constraint firstItem="Om9-XL-i6k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="7sJ-hV-oZp"/>
+                            <constraint firstItem="Rh6-9u-v67" firstAttribute="top" secondItem="vSo-xV-gBW" secondAttribute="bottom" constant="33" id="G6x-iZ-qfb"/>
+                            <constraint firstAttribute="trailing" secondItem="Rh6-9u-v67" secondAttribute="trailing" constant="67" id="ULE-7z-Aes"/>
+                            <constraint firstItem="Om9-XL-i6k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="WyA-Tq-xgN"/>
+                            <constraint firstItem="vSo-xV-gBW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="68" id="Zjf-Z4-Ryd"/>
+                            <constraint firstAttribute="trailing" secondItem="Om9-XL-i6k" secondAttribute="trailing" constant="68" id="d7s-17-5IW"/>
+                            <constraint firstItem="Rh6-9u-v67" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="68" id="em9-Dz-VKb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="PickerTextField" id="F5Y-eb-0Li"/>
+                    <connections>
+                        <outlet property="textField1" destination="Om9-XL-i6k" id="3Wv-eu-kYk"/>
+                        <outlet property="textField2" destination="vSo-xV-gBW" id="LT3-DM-iju"/>
+                        <outlet property="textField3" destination="Rh6-9u-v67" id="0Gl-W7-FAf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UED-od-yZ6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o0v-gX-IqL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gG-DO-vQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7YZ-9C-HGB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CvZ-EV-Txv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="139"/>
+        </scene>
+    </scenes>
+</document>
