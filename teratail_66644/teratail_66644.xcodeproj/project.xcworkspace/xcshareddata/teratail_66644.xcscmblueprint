@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "10AC75294FBE7E531067A49FAB7E31456536FC84",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8B53998CC73AF90CFE9A30DD33FBD19D7D864F9F" : 9223372036854775807,
+    "10AC75294FBE7E531067A49FAB7E31456536FC84" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "26004431-AEA2-4359-868E-75946F696BA2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8B53998CC73AF90CFE9A30DD33FBD19D7D864F9F" : "",
+    "10AC75294FBE7E531067A49FAB7E31456536FC84" : "teratail_66644\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "teratail_66644",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "teratail_66644\/teratail_66644.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:KentarouKanno\/teratail_66644.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10AC75294FBE7E531067A49FAB7E31456536FC84"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:KentarouKanno\/GithubSample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B53998CC73AF90CFE9A30DD33FBD19D7D864F9F"
+    }
+  ]
+}

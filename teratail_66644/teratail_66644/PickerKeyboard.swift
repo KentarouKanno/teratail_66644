@@ -14,12 +14,45 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
     
     let pickerView = UIPickerView()
     let toolbarHeight: CGFloat = 44
-    var pickerDataArray = [String]()
+    var pickerDataArray = [String]() {
+        didSet {
+            if let selectText = pickerDataArray.first {
+                self.selectText = selectText
+            }
+        }
+    }
+    
     var selectText: String = ""
+    
+    var defaultText: String! {
+        get {
+            return ""
+        }
+        set {
+            if let selectIndex = pickerDataArray.index(of: newValue) {
+                pickerView.selectRow(selectIndex, inComponent: 0, animated: false)
+            }
+            self.text = newValue
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        pickerView.delegate   = self
+        pickerView.dataSource = self
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any!) -> Bool {
+        
+        if #selector(UITextField.copy(_:)) == action
+        || #selector(UITextField.paste(_:)) == action
+        || #selector(UITextField.select(_:)) == action
+            || #selector(UITextField.selectAll(_:)) == action {
+            
+        }
+        
+        return false
     }
     
     override var inputAccessoryView: UIView? {
@@ -48,8 +81,6 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
                                       y: toolbarHeight,
                                       width: UIScreen.main.bounds.size.width,
                                       height: pickerView.bounds.size.height)
-            pickerView.delegate   = self
-            pickerView.dataSource = self
             pickerView.backgroundColor = UIColor.white
             return pickerView
         }

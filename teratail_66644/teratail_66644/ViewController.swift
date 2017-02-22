@@ -21,8 +21,13 @@ class ViewController: UIViewController {
         textField1.pickerDataArray = ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "GGG"]
         
         textField2.pickerDataArray = ["111", "222", "333", "444"]
+        textField2.defaultText = "333"
         
         textField3.pickerDataArray = ["😳", "🙍", "🌼", "🌟"]
+    }
+    
+    @IBAction func printPickerText(_ sender: UIButton) {
+        print("textField1: \(textField1.text),textField2: \(textField2.text),textField3: \(textField3.text)")
     }
 }
 
