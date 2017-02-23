@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PickerViewTextFieldDelegate {
     
     @IBOutlet weak var textField1: PickerViewTextField!
     @IBOutlet weak var textField2: PickerViewTextField!
@@ -24,6 +24,11 @@ class ViewController: UIViewController {
         textField2.defaultText = "333"
         
         textField3.pickerDataArray = ["😳", "🙍", "🌼", "🌟"]
+        textField3.pickerTextFieldDelegate = self
+    }
+    
+    func pushDoneButton(text: String) {
+        print(text)
     }
     
     @IBAction func printPickerText(_ sender: UIButton) {

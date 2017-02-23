@@ -9,8 +9,16 @@
 import Foundation
 import UIKit
 
+@objc
+protocol PickerViewTextFieldDelegate: class {
+    @objc optional func pushDoneButton(text: String)
+    @objc optional func pushCancelButton()
+}
+
 
 class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    weak var pickerTextFieldDelegate: PickerViewTextFieldDelegate?
     
     let pickerView = UIPickerView()
     let toolbarHeight: CGFloat = 44
@@ -23,7 +31,6 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     var selectText: String = ""
-    
     var defaultText: String! {
         get {
             return ""
@@ -43,15 +50,17 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
         pickerView.dataSource = self
     }
     
-    override func canPerformAction(_ action: Selector, withSender sender: Any!) -> Bool {
-        
-        if #selector(UITextField.copy(_:)) == action
-        || #selector(UITextField.paste(_:)) == action
-        || #selector(UITextField.select(_:)) == action
-            || #selector(UITextField.selectAll(_:)) == action {
-            
-        }
-        
+    // 入力カーソル非表示
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        return CGRect.zero
+    }
+    // 範囲選択カーソル非表示
+    override func selectionRects(for range: UITextRange) -> [Any] {
+        return []
+    }
+    
+    // コピー・ペースト・選択等のメニュー非表示
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
     }
     
@@ -61,8 +70,8 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
             toolBar.barStyle = UIBarStyle.default
             toolBar.isTranslucent = true
             toolBar.tintColor = UIColor.black
-            let doneButton   = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.donePressed))
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.cancelPressed))
+            let doneButton   = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.pushDoneButton))
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.pushCancelButton))
             let spaceButton  = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
             toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
             toolBar.isUserInteractionEnabled = true
@@ -88,15 +97,17 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // Done
-    func donePressed() {
+    func pushDoneButton() {
         print("Done!")
         self.text = selectText
+        pickerTextFieldDelegate?.pushDoneButton?(text: selectText)
         resignFirstResponder()
     }
     
     // Cancel
-    func cancelPressed() {
+    func pushCancelButton() {
         print("Cancel!")
+        pickerTextFieldDelegate?.pushCancelButton?()
         resignFirstResponder()
     }
     
