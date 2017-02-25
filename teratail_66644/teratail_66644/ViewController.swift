@@ -8,26 +8,45 @@
 
 import UIKit
 
-class ViewController: UIViewController, PickerViewTextFieldDelegate {
+class ViewController: UIViewController,UITextFieldDelegate, PickerTextFieldDelegate {
     
-    @IBOutlet weak var textField1: PickerViewTextField!
-    @IBOutlet weak var textField2: PickerViewTextField!
-    @IBOutlet weak var textField3: PickerViewTextField!
+    @IBOutlet weak var textField1: PickerTextField!
+    @IBOutlet weak var textField2: PickerTextField!
+    @IBOutlet weak var textField3: PickerTextField!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField1.pickerDataArray = ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "GGG"]
+        textField1.delegate = self
         
         textField2.pickerDataArray = ["111", "222", "333", "444"]
         textField2.defaultText = "333"
+        textField2.delegate = self
         
         textField3.pickerDataArray = ["😳", "🙍", "🌼", "🌟"]
         textField3.pickerTextFieldDelegate = self
+        textField3.delegate = self
     }
     
-    func pushDoneButton(text: String) {
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if textField === textField1 {
+            textField1.defaultText = textField1.text
+        } else if textField === textField2 {
+            textField2.defaultText = textField2.text
+        } else if textField === textField3 {
+            textField3.defaultText = textField3.text
+        }
+        return true
+    }
+    
+    // MARK: - PickerTextFieldDelegate
+    
+    func pushDoneButton(pickerTextField: PickerTextField, text: String) {
         print(text)
     }
     

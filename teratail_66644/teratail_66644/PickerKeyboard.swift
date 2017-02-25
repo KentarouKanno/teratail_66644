@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 @objc
-protocol PickerViewTextFieldDelegate: class {
-    @objc optional func pushDoneButton(text: String)
-    @objc optional func pushCancelButton()
+protocol PickerTextFieldDelegate: class {
+    @objc optional func pushDoneButton(pickerTextField: PickerTextField, text: String)
+    @objc optional func pushCancelButton(pickerTextField: PickerTextField)
 }
 
-
-class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    weak var pickerTextFieldDelegate: PickerViewTextFieldDelegate?
+    weak var pickerTextFieldDelegate: PickerTextFieldDelegate?
     
-    let pickerView = UIPickerView()
-    let toolbarHeight: CGFloat = 44
+    private let pickerView = UIPickerView()
+    private let toolbarHeight: CGFloat = 44
+    
     var pickerDataArray = [String]() {
         didSet {
             if let selectText = pickerDataArray.first {
@@ -30,11 +30,9 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-    var selectText: String = ""
+    private var selectText: String = ""
     var defaultText: String! {
-        get {
-            return ""
-        }
+        get { return self.text }
         set {
             if let selectIndex = pickerDataArray.index(of: newValue) {
                 pickerView.selectRow(selectIndex, inComponent: 0, animated: false)
@@ -46,6 +44,7 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        self.tintColor = UIColor.clear
         pickerView.delegate   = self
         pickerView.dataSource = self
     }
@@ -97,17 +96,15 @@ class PickerViewTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // Done
-    func pushDoneButton() {
-        print("Done!")
+    @objc private func pushDoneButton() {
         self.text = selectText
-        pickerTextFieldDelegate?.pushDoneButton?(text: selectText)
+        pickerTextFieldDelegate?.pushDoneButton?(pickerTextField: self, text: selectText)
         resignFirstResponder()
     }
     
     // Cancel
-    func pushCancelButton() {
-        print("Cancel!")
-        pickerTextFieldDelegate?.pushCancelButton?()
+    @objc private func pushCancelButton() {
+        pickerTextFieldDelegate?.pushCancelButton?(pickerTextField: self)
         resignFirstResponder()
     }
     
