@@ -84,7 +84,7 @@ class PickerTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource
     override var inputView: UIView? {
         get {
             (self.value(forKeyPath: "textInputTraits") as AnyObject).setValue(UIColor.clear, forKey: "insertionPointColor")
-            
+             self.tintColor = UIColor.clear
             pickerView.frame = CGRect(x: 0,
                                       y: toolbarHeight,
                                       width: UIScreen.main.bounds.size.width,

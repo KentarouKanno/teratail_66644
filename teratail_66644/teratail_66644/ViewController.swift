@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UITextFieldDelegate, PickerTextFieldDelegate {
     
-    @IBOutlet weak var textField1: PickerTextField!
+    @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: PickerTextField!
     @IBOutlet weak var textField3: PickerTextField!
     
@@ -18,7 +18,6 @@ class ViewController: UIViewController,UITextFieldDelegate, PickerTextFieldDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField1.pickerDataArray = ["AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "GGG"]
         textField1.delegate = self
         
         textField2.pickerDataArray = ["111", "222", "333", "444"]
@@ -34,9 +33,7 @@ class ViewController: UIViewController,UITextFieldDelegate, PickerTextFieldDeleg
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
-        if textField === textField1 {
-            textField1.defaultText = textField1.text
-        } else if textField === textField2 {
+        if textField === textField2 {
             textField2.defaultText = textField2.text
         } else if textField === textField3 {
             textField3.defaultText = textField3.text
